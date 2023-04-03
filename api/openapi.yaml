@@ -1,0 +1,457 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: lampralexandros@gmail.com
+  description: This is a sample openApi document
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: https://wabli.netlify.app/
+  title: TempApi
+  version: 1.0.0
+externalDocs:
+  description: Find out more about Swagger
+  url: http://swagger.io
+servers:
+- description: local-host
+  url: http://localhost:8090/v1
+security:
+- {}
+tags:
+- description: not yet ready
+  name: municipality
+- description: not yet ready
+  name: candidate
+- description: not yet ready
+  name: consultant
+paths:
+  /municipality:
+    post:
+      operationId: createmunicipality
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/municipality'
+        description: data to be created
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/municipality'
+          description: successful operation
+      summary: Creates the data
+      tags:
+      - municipality
+      x-eov-operation-handler: controllers/MunicipalityController
+  /municipality/{municipalityId}:
+    delete:
+      operationId: deletemunicipality
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: municipalityId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: successful operation
+      summary: Delete the element
+      tags:
+      - municipality
+      x-eov-operation-handler: controllers/MunicipalityController
+    get:
+      operationId: getmunicipality
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: municipalityId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/municipality'
+          description: successful operation
+      summary: Get the element
+      tags:
+      - municipality
+      x-eov-operation-handler: controllers/MunicipalityController
+    put:
+      operationId: updatemunicipality
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: municipalityId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/municipality'
+        description: data to be updated
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/municipality'
+          description: successful operation
+      summary: Updates the element
+      tags:
+      - municipality
+      x-eov-operation-handler: controllers/MunicipalityController
+  /municipality/getAll:
+    get:
+      operationId: getAllmunicipality
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/municipality'
+                type: array
+          description: successful operation
+      summary: Get all the data
+      tags:
+      - municipality
+      x-method-getAll: "true"
+      x-custom-code: |
+        /** This is a comment template
+          * @param {string} paramName
+          * @return {Array} [Municipality]
+          */
+        export function pregetAllmunicipality(param) {
+          // insert code here
+          const f3param = [] ;
+          f3param.push(param[0])
+          return f3param;
+        }
+      x-custom-code-prefix: pre
+      x-eov-operation-handler: controllers/MunicipalityController
+  /candidate:
+    post:
+      operationId: createcandidate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/candidate'
+        description: data to be created
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/candidate'
+          description: successful operation
+      summary: Creates the data
+      tags:
+      - candidate
+      x-eov-operation-handler: controllers/CandidateController
+  /candidate/{candidateId}:
+    delete:
+      operationId: deletecandidate
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: candidateId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: successful operation
+      summary: Delete the element
+      tags:
+      - candidate
+      x-eov-operation-handler: controllers/CandidateController
+    get:
+      operationId: getcandidate
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: candidateId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/candidate'
+          description: successful operation
+      summary: Get the element
+      tags:
+      - candidate
+      x-eov-operation-handler: controllers/CandidateController
+    put:
+      operationId: updatecandidate
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: candidateId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/candidate'
+        description: data to be updated
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/candidate'
+          description: successful operation
+      summary: Updates the element
+      tags:
+      - candidate
+      x-eov-operation-handler: controllers/CandidateController
+  /candidate/getAll:
+    get:
+      operationId: getAllcandidate
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/candidate'
+                type: array
+          description: successful operation
+      summary: Get all the data
+      tags:
+      - candidate
+      x-method-getAll: "true"
+      x-eov-operation-handler: controllers/CandidateController
+  /consultant:
+    post:
+      operationId: createconsultant
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/consultant'
+        description: data to be created
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/consultant'
+          description: successful operation
+      summary: Creates the data
+      tags:
+      - consultant
+      x-eov-operation-handler: controllers/ConsultantController
+  /consultant/{consultantId}:
+    delete:
+      operationId: deleteconsultant
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: consultantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: successful operation
+      summary: Delete the element
+      tags:
+      - consultant
+      x-eov-operation-handler: controllers/ConsultantController
+    get:
+      operationId: getconsultant
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: consultantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/consultant'
+          description: successful operation
+      summary: Get the element
+      tags:
+      - consultant
+      x-eov-operation-handler: controllers/ConsultantController
+    put:
+      operationId: updateconsultant
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: consultantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/consultant'
+        description: data to be updated
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/consultant'
+          description: successful operation
+      summary: Updates the element
+      tags:
+      - consultant
+      x-eov-operation-handler: controllers/ConsultantController
+  /consultant/getAll:
+    get:
+      operationId: getAllconsultant
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/consultant'
+                type: array
+          description: successful operation
+      summary: Get all the data
+      tags:
+      - consultant
+      x-method-getAll: "true"
+      x-eov-operation-handler: controllers/ConsultantController
+components:
+  schemas:
+    municipality:
+      example:
+        mimage:
+          data: data
+          name: name
+        _id: _id
+        mname: mname
+        mcandidates:
+        - ""
+        - ""
+      properties:
+        _id:
+          type: string
+        mimage:
+          $ref: '#/components/schemas/municipality_mimage'
+        mname:
+          type: string
+        mcandidates:
+          items:
+            oneOf:
+            - $ref: '#/components/schemas/candidate'
+            - type: string
+            x-one-of-name: candidate
+          type: array
+      required:
+      - mcandidates
+      - mimage
+      - mname
+      type: object
+    candidate:
+      example:
+        cimage:
+          data: data
+          name: name
+        cname: cname
+        cconsultants:
+        - ""
+        - ""
+        _id: _id
+        cbio: cbio
+      properties:
+        _id:
+          type: string
+        cname:
+          type: string
+        cbio:
+          type: string
+        cimage:
+          $ref: '#/components/schemas/municipality_mimage'
+        cconsultants:
+          items:
+            oneOf:
+            - $ref: '#/components/schemas/consultant'
+            - type: string
+            x-one-of-name: consultant
+          type: array
+      required:
+      - cbio
+      - cconsultants
+      - cimage
+      - cname
+      type: object
+    consultant:
+      example:
+        consbio: consbio
+        consimage:
+          data: data
+          name: name
+        consname: consname
+        _id: _id
+      properties:
+        _id:
+          type: string
+        consname:
+          type: string
+        consimage:
+          $ref: '#/components/schemas/municipality_mimage'
+        consbio:
+          type: string
+      required:
+      - consbio
+      - consimage
+      - consname
+      type: object
+    municipality_mimage:
+      example:
+        data: data
+        name: name
+      properties:
+        data:
+          type: string
+        name:
+          type: string
+      type: object
+      x-isSchemaOnly: "true"
